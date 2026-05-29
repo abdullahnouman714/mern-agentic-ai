@@ -1,59 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AN Fashion Villa - Shop</title>
-    <link rel="stylesheet" href="css/shop.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/shop.css" />
+  </head>
+  <body>
     <header>
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">AN Fashion Villa</div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html" class="active">Shop</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="cart.html">Cart <span id="cart-count">0</span></a></li>
-                </ul>
-                <div class="hamburger"><span></span><span></span><span></span></div>
-            </div>
-        </nav>
+      <nav class="navbar">
+        <div class="container">
+          <div class="logo">AN Fashion Villa</div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html" class="active">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+              <a href="cart.html">Cart <span id="cart-count">0</span></a>
+            </li>
+          </ul>
+          <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+      </nav>
     </header>
 
     <section class="shop-section">
-        <div class="container">
-            <h2>All Products</h2>
-            
-            <div class="filters">
-                <a href="shop.html" class="filter-btn active">All</a>
-                <a href="shop-unstitched.html" class="filter-btn">Unstitched</a>
-                <a href="shop-stitched.html" class="filter-btn">Stitched</a>
-                <a href="shop-accessories.html" class="filter-btn">Accessories</a>
-            </div>
-            
-            <div class="product-grid" id="shop-products"></div>
+      <div class="container">
+        <h2>All Products</h2>
+
+        <div class="filters">
+          <a href="shop.html" class="filter-btn active">All</a>
+          <a href="shop-unstitched.html" class="filter-btn">Unstitched</a>
+          <a href="shop-stitched.html" class="filter-btn">Stitched</a>
+          <a href="shop-accessories.html" class="filter-btn">Accessories</a>
         </div>
+
+        <div class="product-grid" id="shop-products"></div>
+      </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p class="copyright">© 2026 AN Fashion Villa. All rights reserved.</p>
-        </div>
+      <div class="container">
+        <p class="copyright">© 2026 AN Fashion Villa. All rights reserved.</p>
+      </div>
     </footer>
     <script src="js/main.js"></script>
     <script>
-        // Display all products
-        const container = document.getElementById('shop-products');
-        container.innerHTML = products.map(product => `
+      // Display all products
+      const container = document.getElementById("shop-products");
+      container.innerHTML = products
+        .map(
+          (product) => `
             <div class="product-card" onclick="window.location='product.html?id=${product.id}'">
                 <img src="${product.image}" alt="${product.name}">
                 <h3>${product.name}</h3>
                 <p class="price">PKR ${product.price.toLocaleString()}</p>
                 <button class="btn-add" onclick="event.stopPropagation(); addToCart(${product.id})">Add to Cart</button>
             </div>
-        `).join('');
+        `,
+        )
+        .join("");
     </script>
-</body>
+  </body>
 </html>
